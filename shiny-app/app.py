@@ -13,9 +13,12 @@ from ipyleaflet import GeoData, GeoJSON, Marker, Icon, LayerGroup
 from ipywidgets import HTML
 from pathlib import Path
 
+# Absolute paths relative to this app.py file
+APP_DIR = Path(__file__).resolve().parent
+WWW_DIR = APP_DIR / "www"
 
-# Path to your GeoPackage file
-gpkg_path = Path("taylor_yard.gpkg")
+# Path to the GeoPackage file
+gpkg_path = APP_DIR / "taylor_yard.gpkg"
 
 # Function to create sqlalchemy engine
 def engine():
@@ -153,12 +156,13 @@ with ui.nav_panel("Web map of site layout"):
         with ui.panel_absolute():    
             @render_widget
             def text2():
-                probe = 'vp.png'
-                well = 'mw.png'
+                probe_png = 'https://raw.githubusercontent.com/Geo-Leo/shiny-python-environmental/refs/heads/main/shiny-app/www/vp.png'
+                well_png = 'https://raw.githubusercontent.com/Geo-Leo/shiny-python-environmental/refs/heads/main/shiny-app/www/mw.png'
                 html_text = HTML()
                 html_text.value = '<h3>Legend</h3>'\
-                f'<img src={probe} alt="probe" width="25" height="25">' + '<span style="font-size:21px">  Vapor probe</span>' + '<br>'\
-                f'<img src={well} alt="well" width="25" height="25">' + '<span style="font-size:21px">  Monitoring well</span>' + '<br><br>'
+                f'<img src={probe_png} alt="probe" width="25" height="25">' + '<span style="font-size:21px">  Vapor probe</span>' + '<br>'\
+                f'<img src={well_png} alt="well" width="25" height="25">' + '<span style="font-size:21px">  Monitoring well</span>' + '<br><br>'
+                print(html_text.value)
                 html_text.layout.margin = "0px 20px 20px 20px"
                 return html_text
                 
