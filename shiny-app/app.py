@@ -1,4 +1,4 @@
-from shiny import reactive, render
+from shiny import reactive, render, express
 from shiny.express import input, ui, output
 from shinywidgets import render_widget
 from ipyleaflet import Map, basemaps, LayersControl, LegendControl, CircleMarker, LayerGroup, Popup, ScaleControl
@@ -12,6 +12,11 @@ import geopandas as gpd, numpy as np, json
 from ipyleaflet import GeoData, GeoJSON, Marker, Icon, LayerGroup
 from ipywidgets import HTML
 from pathlib import Path
+
+# Force an absolute path for static assets in Shiny Express
+express.app_opts(
+    static_assets=Path(__file__).parent / "www"
+)
 
 # Absolute paths relative to this app.py file
 APP_DIR = Path(__file__).resolve().parent
