@@ -145,6 +145,7 @@ with ui.nav_panel("Web map of site layout"):
                 global eng
                 eng = engine()
                 add_boundary(s, gpkg_path)
+                print('***GPKG PATH***', gpkg_path)
 
                 s.add(ScaleControl(position='bottomleft', metric=False))  # Add scale control to map
 
