@@ -58,8 +58,8 @@ with ui.sidebar(open="closed", bg="#f8f8f8"):
     with ui.accordion(id="acc", open=False):  
         with ui.accordion_panel("Configure database connection"):  
             ui.input_text("user", "Username:", "avnadmin")  
-            ui.input_password("pw", "Password:", value='AVNS_exJUZgrVHAHXlWI_b5B')
-            ui.input_text("host", "Host:", "pg-1afe4b7c-leo-7d4e.b.aivencloud.com")  
+            ui.input_password("pw", "Password:", value='***')
+            ui.input_text("host", "Host:", "***")  
             ui.input_text("port", "Port:", "10563")  
             ui.input_text("db", "Database:", "defaultdb")
             ui.input_text("schema", "Schema:", "tayloryard")
