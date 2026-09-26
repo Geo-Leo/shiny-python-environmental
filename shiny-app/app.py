@@ -13,14 +13,16 @@ from ipyleaflet import GeoData, GeoJSON, Marker, Icon, LayerGroup
 from ipywidgets import HTML
 from pathlib import Path
 
-# Force an absolute path for static assets in Shiny Express
-express.app_opts(
-    static_assets=Path(__file__).parent / "www"
-)
+
 
 # Absolute paths relative to this app.py file
 APP_DIR = Path(__file__).resolve().parent
 WWW_DIR = APP_DIR / "www"
+
+# Force an absolute path for static assets in Shiny Express
+express.app_opts(
+    static_assets = WWW_DIR
+)
 
 # Path to the GeoPackage file
 gpkg_path = APP_DIR / "taylor_yard.gpkg"
